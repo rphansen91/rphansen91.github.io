@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'Helvetica';
+  src: url('./fonts/Helvetica.woff2') format('woff2'),
+       url('./fonts/Helvetica.woff') format('woff'),
+       url('./fonts/Helvetica.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Helvetica-Bold';
+  src: url('./fonts/Helvetica-Bold.woff2') format('woff2'),
+       url('./fonts/Helvetica-Bold.woff') format('woff'),
+       url('./fonts/Helvetica-Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Helvetica-Oblique';
+  src: url('./fonts/Helvetica-Oblique.woff2') format('woff2'),
+       url('./fonts/Helvetica-Oblique.woff') format('woff'),
+       url('./fonts/Helvetica-Oblique.ttf') format('truetype');
+}

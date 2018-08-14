@@ -1,0 +1,20 @@
+.beach {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+}
+
+.pocketwatch {
+  width: 100%;
+}
+
+.tiger,
+.pocketwatch,
+.beach,
+.gears {
+  fill: none;
+  stroke: currentColor;
+  transform-origin: center;
+  stroke-width: 2px;
+}

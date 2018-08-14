@@ -1,0 +1,158 @@
+{
+  "basics": {
+    "name": "Ryan P. Hansen",
+    "label": "Web Developer",
+    "picture": "https://avatars3.githubusercontent.com/u/6298790?s=460&v=4",
+    "email": "rphansen91@gmail.com",
+    "phone": "(951) 550-7992",
+    "website": "https://elevatejs.com",
+    "summary": "Fullstack web and mobile developer with a passion for any tech that’s bleeding edge. I was an early adopter to ReactJS and Redux and know several Javascript frameworks and stacks through years of experience as a Lead Engineer across various teams.",
+    "location": {
+      "address": "3155 Avenida Olmeda",
+      "postalCode": "92009",
+      "city": "Carlsbad",
+      "countryCode": "US",
+      "region": "California"
+    },
+    "profiles": [
+      {
+        "network": "Github",
+        "username": "rphansen91",
+        "url": "http://gitbub.com/rphansen91"
+      }
+    ]
+  },
+  "work": [
+    {
+      "company": "Tang Capital Management",
+      "picture": "",
+      "position": "Software Engineer",
+      "website": "http://company.com",
+      "startDate": "2013-01-01",
+      "endDate": "2014-01-01",
+      "summary": "Description...",
+      "highlights": ["Started the company"]
+    },
+    {
+      "company": "Spoutable",
+      "picture": "http://elevatejs.com/assets/spoutable.png",
+      "position": "Frontend Developer",
+      "website": "https://spoutable.com",
+      "startDate": "2016-10-01",
+      "endDate": "2017-02-01",
+      "summary": "Description...",
+      "highlights": ["Started the company"]
+    },
+    {
+      "company": "Verihold",
+      "picture": "http://elevatejs.com/assets/verihold.png",
+      "position": "Lead Frontend Engineer",
+      "website": "https://verihold.com",
+      "startDate": "2014-09-01",
+      "endDate": "Present",
+      "summary": "Description...",
+      "highlights": ["Started the company"]
+    },
+    {
+      "company": "Antengo",
+      "picture": "http://elevatejs.com/assets/antengo.png",
+      "position": "Lead Frontend Engineer",
+      "website": "https://antengo.com",
+      "startDate": "2014-09-01",
+      "endDate": "Present",
+      "summary": "Description...",
+      "highlights": ["Started the company"]
+    },
+    {
+      "company": "Anthro.is",
+      "picture": "http://elevatejs.com/assets/anthro.png",
+      "position": "Lead Engineer",
+      "website": "https://www.richardsherman25.com/",
+      "startDate": "2013-01-01",
+      "endDate": "2014-09-01",
+      "summary": "Description...",
+      "highlights": ["Started the company"]
+    }
+  ],
+  "projects": [
+    {
+      "company": "Bedyestory",
+      "picture": "",
+      "position": "Founder",
+      "website": "https://bedystory.com",
+      "startDate": "2013-01-01",
+      "endDate": "2014-01-01",
+      "summary": "Description...",
+      "highlights": ["Started the company"]
+    },
+    {
+      "company": "Hodl Stream",
+      "picture": "",
+      "position": "Founder",
+      "website": "https://hodlstream.com",
+      "startDate": "2013-01-01",
+      "endDate": "2014-01-01",
+      "summary": "Description...",
+      "highlights": ["Started the company"]
+    },
+    {
+      "company": "Histogeo",
+      "picture": "",
+      "position": "Founder",
+      "website": "https://histogeo.com",
+      "startDate": "2013-01-01",
+      "endDate": "2014-01-01",
+      "summary": "Description...",
+      "highlights": ["Started the company"]
+    }
+  ],
+  "volunteer": [],
+  "education": [
+    {
+      "picture": "http://elevatejs.com/assets/ucsd.png",
+      "institution": "University of California, San Diego",
+      "area": "Management Science",
+      "studyType": "Bachelor",
+      "startDate": "2009-09-01",
+      "endDate": "2013-06-01",
+      "courses": []
+    }
+  ],
+  "awards": [],
+  "publications": [],
+  "packages": [],
+  "skills": [
+    {
+      "name": "Web Development",
+      "level": "Master",
+      "keywords": ["HTML", "CSS", "Javascript", "NodeJS", "React"]
+    },
+    {
+      "name": "Data Visualization",
+      "level": "Professional",
+      "keywords": ["Mixpanel", "D3"]
+    }
+  ],
+  "languages": [
+    {
+      "name": "English",
+      "level": "Native speaker"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Wildlife",
+      "keywords": ["Ferrets", "Unicorns"]
+    }
+  ],
+  "references": [
+    {
+      "name": "Daniel Rivera",
+      "reference": "Reference..."
+    },
+    {
+      "name": "Marcus Wandell",
+      "reference": "Reference..."
+    }
+  ]
+}

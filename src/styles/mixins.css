@@ -1,0 +1,27 @@
+:global .shadow {
+  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+:global .pointer {
+  cursor: pointer;
+}
+
+:global .absolute {
+  position: absolute;
+}
+
+:global .relative {
+  position: relative;
+}
+
+:global .mr {
+  margin-right: 0.75rem;
+}
+
+:global .mr-1 {
+  margin-right: 1rem;
+}
+
+:global .mr-2 {
+  margin-right: 2rem;
+}
