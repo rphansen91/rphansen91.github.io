@@ -2,9 +2,8 @@ import React from "react";
 import { compose } from "redux";
 import Hero from "../../components/Hero";
 import Tile from "../../components/Tile";
-import Media from "../../components/Media";
+import Badge from "../../components/Badge";
 import Footer from "../../components/Footer";
-import Loader from "../../components/Loader";
 import Beach from "../../components/Draw/Beach";
 import Tiger from "../../components/Draw/Tiger";
 import Gears from "../../components/Draw/Gears";
@@ -30,28 +29,12 @@ export default compose(
         <div>
           <Beach className={s.beach} timer={2000} />
           <div className="container">
-            <Media
-              left={
-                <figure className="image is-128x128">
-                  {resume.loading ? (
-                    <Loader />
-                  ) : (
-                    <img
-                      className="is-rounded"
-                      src={get(resume, "data.basics.picture")}
-                    />
-                  )}
-                </figure>
-              }
-              content={
-                <div className="content">
-                  <h1 className="title">{get(resume, "data.basics.name")}</h1>
-                  <h2 className="subtitle">
-                    {get(resume, "data.basics.label")}
-                  </h2>
-                </div>
-              }
-            />
+            <div className="columns is-desktop">
+              <div className="column">
+                <Badge showProfiles />
+              </div>
+              <div className="column" />
+            </div>
           </div>
         </div>
       }
@@ -73,7 +56,7 @@ export default compose(
                 notification
               >
                 <p className="title">Applications</p>
-                <Gears className={s.gears} />
+                {/* <Gears className={s.gears} /> */}
               </Tile>
               <Tile
                 className={cx([
@@ -86,7 +69,7 @@ export default compose(
                 notification
               >
                 <p className="title">Open Source</p>
-                {/* <Gears className={s.gears} /> */}
+                <Gears className={s.gears} />
               </Tile>
             </Tile>
             <Tile parent>
@@ -101,7 +84,7 @@ export default compose(
                 notification
               >
                 <p className="title">Skills</p>
-                <Tiger className={s.tiger} timer={2000} />
+                <Tiger className={s.tiger} timer={6000} />
               </Tile>
             </Tile>
           </Tile>
@@ -134,7 +117,7 @@ export default compose(
               <p className="title">Experience</p>
               <p className="subtitle" />
             </div>
-            <Pocketwatch className={s.pocketwatch} />
+            {/* <Pocketwatch className={s.pocketwatch} /> */}
           </Tile>
         </Tile>
       </Tile>

@@ -3,13 +3,12 @@ import { Switch, Route, NavLink, withRouter } from "react-router-dom";
 import Tabs, { TabLink } from "../../components/Tabs";
 import Hero from "../../components/Hero";
 import Footer from "../../components/Footer";
-import Basics from "./Basics";
+import Badge from "../../components/Badge";
 import Applications from "./Applications";
 import OpenSource from "./OpenSource";
 import Experience from "./Experience";
 import Skills from "./Skills";
 import Education from "./Education";
-import { activePortfolioColor, activePortfolioName } from "./active";
 import cx from "../../utils/cx";
 
 class Portfolio extends Component {
@@ -42,13 +41,7 @@ class Portfolio extends Component {
         <Hero
           bold
           dark={true}
-          // className={activePortfolioColor(pathname)}
-          body={
-            <div className="container">
-              <h1 className="title">Portfolio</h1>
-              {/* <h2 className="subtitle">{activePortfolioName(pathname)}</h2> */}
-            </div>
-          }
+          body={<Badge showSummary />}
           foot={
             <Tabs boxed fullwidth>
               <div className="container">
@@ -94,12 +87,36 @@ class Portfolio extends Component {
           }
         />
 
-        <Basics />
-        <Applications />
-        <OpenSource />
-        <Experience />
-        <Skills />
-        <Education />
+        {/* <section className="section">
+          <div className="container">
+            <Badge showSummary />
+          </div>
+        </section> */}
+
+        <Switch>
+          <Route
+            path="/portfolio"
+            component={() => (
+              <div>
+                <Applications />
+                <OpenSource />
+                <Experience />
+                <Skills />
+                <Education />
+              </div>
+            )}
+          />
+          {/* <Route
+            exact
+            path="/portfolio/applications"
+            component={Applications}
+          />
+          <Route exact path="/portfolio/open-source" component={OpenSource} />
+          <Route exact path="/portfolio/experience" component={Experience} />
+          <Route exact path="/portfolio/skills" component={Skills} />
+          <Route exact path="/portfolio/education" component={Education} /> */}
+        </Switch>
+
         <Footer />
       </div>
     );

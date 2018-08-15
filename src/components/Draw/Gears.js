@@ -26,8 +26,8 @@ export default class extends Component {
     const timeline = new TimelineLite();
     const rotate = rotation => ({
       rotation,
-      transformOrigin: "50% 50%",
-      loop: true
+      transformOrigin: "50% 50%"
+      // repeat: -1
     });
     timeline.add(
       TweenMax.to(this.elements.lg, this.timer / 1000, rotate("360")),

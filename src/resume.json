@@ -17,8 +17,15 @@
     "profiles": [
       {
         "network": "Github",
+        "fa": "fab fa-github-square",
         "username": "rphansen91",
-        "url": "http://gitbub.com/rphansen91"
+        "url": "https://github.com/rphansen91"
+      },
+      {
+        "network": "linkedin",
+        "fa": "fab fa-linkedin",
+        "username": "rphansen91",
+        "url": "https://www.linkedin.com/in/ryan-hansen-32b66582"
       }
     ]
   },

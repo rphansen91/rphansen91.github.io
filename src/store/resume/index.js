@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import { createReducer as cr, createAction as ca } from "redux-delta";
 import resumejson from "../../resume.json";
+import get from "lodash/get";
 
 const loading = ca("RESUME_LOADING");
 const success = ca("RESUME_RESPOND");
@@ -35,6 +36,10 @@ export const withResume = connect(
       return dispatch(loadResume(...args));
     }
   })
+);
+
+export const withResumeBasics = connect(
+  ({ resume }) => get(resume, "data.basics") || {}
 );
 
 export const resume = cr({ loading: false, data: null, error: "" }, [
