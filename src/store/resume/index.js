@@ -38,9 +38,9 @@ export const withResume = connect(
   })
 );
 
-export const withResumeBasics = connect(
-  ({ resume }) => get(resume, "data.basics") || {}
-);
+export const withResumeBasics = connect(({ resume }) => ({
+  basics: get(resume, "data.basics") || {}
+}));
 
 export const resume = cr({ loading: false, data: null, error: "" }, [
   loading.case((_, loading) => ({ loading: !!loading })),

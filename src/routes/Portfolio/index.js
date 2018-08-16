@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Switch, Route, NavLink, withRouter } from "react-router-dom";
+import { compose } from "redux";
 import Tabs, { TabLink } from "../../components/Tabs";
 import Hero from "../../components/Hero";
 import Footer from "../../components/Footer";
@@ -9,6 +10,7 @@ import OpenSource from "./OpenSource";
 import Experience from "./Experience";
 import Skills from "./Skills";
 import Education from "./Education";
+import { withResumeBasics } from "../../store/resume";
 import cx from "../../utils/cx";
 
 class Portfolio extends Component {
@@ -16,7 +18,7 @@ class Portfolio extends Component {
 
   scrollToElement() {
     const {
-      location: { pathname }
+      location: { pathname = "" }
     } = this.props;
     const id = pathname.replace("/portfolio/", "");
     const element = document.getElementById(id);
@@ -34,14 +36,15 @@ class Portfolio extends Component {
   render() {
     const {
       history: { push },
-      location: { pathname }
+      location: { pathname },
+      basics: { summary }
     } = this.props;
     return (
       <div>
         <Hero
           bold
           dark={true}
-          body={<Badge showSummary />}
+          body={<Badge />}
           foot={
             <Tabs boxed fullwidth>
               <div className="container">
@@ -98,6 +101,11 @@ class Portfolio extends Component {
             path="/portfolio"
             component={() => (
               <div>
+                <section className="section">
+                  <div className="container">
+                    <p>{summary}</p>
+                  </div>
+                </section>
                 <Applications />
                 <OpenSource />
                 <Experience />
@@ -123,4 +131,7 @@ class Portfolio extends Component {
   }
 }
 
-export default withRouter(Portfolio);
+export default compose(
+  withRouter,
+  withResumeBasics
+)(Portfolio);

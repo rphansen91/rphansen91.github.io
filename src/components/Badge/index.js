@@ -9,11 +9,7 @@ import cx from "../../utils/cx";
 
 export const Badge = ({
   resume,
-  picture,
-  name,
-  label,
-  summary,
-  profiles,
+  basics: { picture, name, label, summary, profiles },
   removeResumeError,
   showSummary,
   showProfiles
