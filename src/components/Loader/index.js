@@ -16,13 +16,21 @@ export default class ProgressBarLoader extends Component {
     this.repeat = props.repeat || false;
   }
 
-  componentDidMount() {
+  startLoader() {
     const from = { x: 0 };
     this.loader = new TweenMax(from, this.timer / 1000, {
       x: 100,
       repeat: this.repeat,
       onUpdate: () => this.setValue(from.x)
     });
+  }
+
+  componentDidMount() {
+    this.startLoader();
+  }
+
+  componentWillUnmount() {
+    this.loader && this.loader.kill();
   }
 
   setValue(value) {

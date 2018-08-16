@@ -13,13 +13,6 @@ export const navbar = cr({ open: false }, [
   toggleNavbar.case(({ open }) => ({ open: !open }))
 ]);
 
-export const navSideEffects = (dispatch, getState) => {
-  document.addEventListener("click", () => {
-    const { navbar } = getState();
-    if (navbar.open) dispatch(closeNavbar());
-  });
-};
-
 export const withNavbar = connect(
   ({ navbar }) => ({ navbar }),
   dispatch => ({
