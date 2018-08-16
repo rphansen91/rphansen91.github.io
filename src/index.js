@@ -12,10 +12,14 @@ import "./index.css";
 
 const preloadedState = window.__PRELOADED_STATE__;
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const middleware = composeEnhancers(
-  applyMiddleware(thunk, process.env.NODE_ENV !== "production" && logger)
+const middleware = [
+  thunk,
+  process.env.NODE_ENV !== "production" && logger
+].filter(m => typeof m === "function");
+const store = createStore(
+  preloadedState,
+  composeEnhancers(applyMiddleware(...middleware))
 );
-const store = createStore(preloadedState, middleware);
 const context = {};
 bootStore(store);
 
