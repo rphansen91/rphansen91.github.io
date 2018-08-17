@@ -2,9 +2,12 @@ import React, { Component } from "react";
 import { Switch, Route, NavLink, withRouter } from "react-router-dom";
 import { compose } from "redux";
 import Tabs, { TabLink } from "../../components/Tabs";
+import { Alert } from "../../components/Media";
 import Hero from "../../components/Hero";
+import Loader from "../../components/Loader";
 import Footer from "../../components/Footer";
 import Badge from "../../components/Badge";
+import Summary from "./Summary";
 import Applications from "./Applications";
 import OpenSource from "./OpenSource";
 import Experience from "./Experience";
@@ -36,15 +39,14 @@ class Portfolio extends Component {
   render() {
     const {
       history: { push },
-      location: { pathname },
-      basics: { summary }
+      location: { pathname }
     } = this.props;
     return (
       <div>
         <Hero
           bold
           dark={true}
-          body={<Badge />}
+          body={<Badge showProfiles />}
           foot={
             <Tabs boxed fullwidth>
               <div className="container">
@@ -101,11 +103,7 @@ class Portfolio extends Component {
             path="/portfolio"
             component={() => (
               <div>
-                <section className="section">
-                  <div className="container">
-                    <p>{summary}</p>
-                  </div>
-                </section>
+                <Summary />
                 <Applications />
                 <OpenSource />
                 <Experience />

@@ -1,7 +1,7 @@
 import React from "react";
 import Hero from "../../../components/Hero";
 import Loader from "../../../components/Loader";
-import Media, { Alert } from "../../../components/Media";
+import Media from "../../../components/Media";
 import { activePortfolioColor } from "../active";
 import { compose } from "redux";
 import { withRouter } from "react-router-dom";

@@ -1,6 +1,7 @@
 import React from "react";
 import Hero from "../../../components/Hero";
-import Media from "../../../components/Media";
+import Loader from "../../../components/Loader";
+import Media, { Alert } from "../../../components/Media";
 import Tile from "../../../components/Tile";
 import { activePortfolioColor } from "../active";
 import { compose } from "redux";
@@ -35,7 +36,10 @@ const MediaItem = ({ src, name, username, project, description, shields }) => (
   />
 );
 
-const OpenSource = ({ packages: { data } }) => (
+const OpenSource = ({
+  packages: { loading, data, error },
+  removePackagesFailure
+}) => (
   <div id="open-source">
     <Hero
       bold
@@ -48,6 +52,8 @@ const OpenSource = ({ packages: { data } }) => (
     />
     <section className="section">
       <div className="container">
+        {loading && <Loader />}
+        {error && <Alert content={error} onClose={removePackagesFailure} />}
         {[]
           .concat(data)
           .filter(v => v && v.name)

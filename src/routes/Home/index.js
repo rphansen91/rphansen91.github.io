@@ -1,5 +1,7 @@
 import React from "react";
 import { compose } from "redux";
+import { Alert } from "../../components/Media";
+import Loader from "../../components/Loader";
 import Hero from "../../components/Hero";
 import Tile from "../../components/Tile";
 import Badge from "../../components/Badge";
@@ -18,7 +20,7 @@ import s from "./index.css";
 export default compose(
   withRouter,
   withResume
-)(({ resume, history }) => (
+)(({ resume: { loading, error }, removeResumeFailure, history }) => (
   <div>
     <Hero
       className="relative"
@@ -41,6 +43,14 @@ export default compose(
     />
 
     <section className="section">
+      {loading ? (
+        <Loader />
+      ) : error ? (
+        <Alert content={error} onClose={removeResumeFailure} />
+      ) : (
+        ""
+      )}
+
       <Tile ancestor>
         <Tile vertical className="is-8">
           <Tile>

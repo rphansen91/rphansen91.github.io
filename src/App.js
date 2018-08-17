@@ -10,7 +10,7 @@ import Contact from "./routes/Contact";
 import About from "./routes/About";
 
 const BrandIcon = withRouter(({ history }) => (
-  <Brand onClick={() => history.push("/")} />
+  <Brand title="Portfolio" onClick={() => history.push("/")} />
 ));
 
 export default () => (
