@@ -53,7 +53,7 @@ function* sendContactSaga({ payload: { from, text } }) {
           body: JSON.stringify({
             to: `<${to}>`,
             from: `<${from}>`,
-            secret: window.__recaptcha__,
+            recaptcha: window.__recaptcha__,
             subject,
             text
           })
