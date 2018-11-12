@@ -102,8 +102,8 @@ export default compose(
       </section>
     ) : (
       <section className="section">
-        {contact.loading ? <Loader repeat={-1} /> : <div />}
         <div className="container">
+          {contact.loading ? <Loader repeat={-1} /> : <div />}
           {get(contact, "error.message") && (
             <p class="help is-danger">{get(contact, "error.message")}</p>
           )}
