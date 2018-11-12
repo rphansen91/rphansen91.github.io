@@ -87,6 +87,10 @@ export default compose(
     {contact.data ? (
       <section className="section">
         <div className="container">
+          <span class="icon has-text-info is-large">
+            <i class="fas fa-check fa-3x" />
+          </span>
+
           <p>
             Thank you for reaching out! I will respond as quickly as the daily
             volume allows.
