@@ -2,13 +2,16 @@ import { createStore, applyMiddleware, compose } from "redux";
 import sagaMiddlewareFactory from "redux-saga";
 import packagesSaga, { loadPackages } from "./packages";
 import resumeSaga, { loadResume } from "./resume";
+import { postsSaga, loadPosts } from "./blog";
+import contactSaga from "./contact";
 import reducers from "./reducer";
 
-const sagas = [packagesSaga, resumeSaga];
+const sagas = [packagesSaga, resumeSaga, postsSaga, contactSaga];
 
 export const bootStore = ({ dispatch }) => {
   dispatch(loadPackages());
   dispatch(loadResume());
+  dispatch(loadPosts());
 };
 
 export default (initial, composeEnhancers = compose) => {

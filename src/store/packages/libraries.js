@@ -22,7 +22,7 @@ export default [
   {
     src:
       "https://raw.githubusercontent.com/rphansen91/redux-delta/master/assets/redux-delta.svg?sanitize=true",
-    uri: "",
+    uri: "https://www.npmjs.com/package/redux-delta",
     git_uri: "",
     readme_uri: "",
     name: "Redux Delta",
@@ -38,7 +38,7 @@ export default [
     ]
   },
   {
-    uri: "",
+    uri: "https://www.npmjs.com/package/redux-rtc",
     git_uri: "",
     readme_uri: "",
     name: "Redux RTC",
@@ -53,7 +53,7 @@ export default [
     ]
   },
   {
-    uri: "",
+    uri: "https://www.npmjs.com/package/route-to",
     git_uri: "",
     readme_uri: "",
     name: "Route To",
@@ -65,6 +65,21 @@ export default [
       codecov({ username: "rphansen91", project: "route-to" }),
       npm({ project: "route-to" }),
       downloads({ project: "route-to" })
+    ]
+  },
+  {
+    uri: "https://www.npmjs.com/package/react-form-controls",
+    git_uri: "",
+    readme_uri: "",
+    name: "React Form Controls",
+    project: "react-form-controls",
+    username: "rphansen91",
+    description: "Controls to make working with forms simple.",
+    shields: [
+      travis({ username: "rphansen91", project: "react-form-controls" }),
+      codecov({ username: "rphansen91", project: "react-form-controls" }),
+      npm({ project: "react-form-controls" }),
+      downloads({ project: "react-form-controls" })
     ]
   }
 ];

@@ -1,13 +1,13 @@
 import React from "react";
 import cx from "../../utils/cx";
 
-export default ({ onClick = v => v, open }) => (
+export default ({ onClick = v => v, active }) => (
   <a
     onClick={onClick}
     role="button"
     className={cx({
       "navbar-burger": true,
-      "is-active": open
+      "is-active": active
     })}
     aria-label="menu"
     aria-expanded="false"

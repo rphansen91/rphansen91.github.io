@@ -43,7 +43,7 @@ export default class Draw extends Component {
       timeline.add(element.animate(element.length, element.length, 0));
     });
 
-    const groups = Object.keys(this.groups)
+    const groups = Object.keys(this.groups || {})
       .sort((a, b) => a - b)
       .reduce((tl, group) => {
         this.groups[group].map((element, i) => {
@@ -56,7 +56,7 @@ export default class Draw extends Component {
         return tl;
       }, new TimelineLite());
 
-    timeline.add(groups, "tiger");
+    timeline.add(groups);
     return timeline;
   }
 

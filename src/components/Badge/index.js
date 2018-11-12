@@ -14,9 +14,11 @@ export const Badge = ({
 }) => (
   <Media
     left={
-      <figure className="image is-64x64">
-        <img className="is-rounded" src={picture} />
-      </figure>
+      picture && (
+        <figure className="image is-64x64">
+          <img className="is-rounded border-2" src={picture} />
+        </figure>
+      )
     }
     content={
       <div className="content">
@@ -49,7 +51,7 @@ export const Badge = ({
             </div>
           </nav>
         )}
-        {showSummary && <p>{summary}</p>}
+        {showSummary && <div dangerouslySetInnerHTML={{ __html: summary }} />}
       </div>
     }
   />

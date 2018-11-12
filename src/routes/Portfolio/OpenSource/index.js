@@ -8,7 +8,15 @@ import { compose } from "redux";
 import { withRouter } from "react-router-dom";
 import { withPackages } from "../../../store/packages";
 
-const MediaItem = ({ src, name, username, project, description, shields }) => (
+const MediaItem = ({
+  src,
+  uri,
+  name,
+  username,
+  project,
+  description,
+  shields
+}) => (
   <Media
     notification
     left={
@@ -21,8 +29,16 @@ const MediaItem = ({ src, name, username, project, description, shields }) => (
     content={
       <div className="content">
         <p>
-          <strong>{name}</strong> <small>@{username}</small>{" "}
-          {/* <small>31m</small> */}
+          <strong>
+            {uri ? (
+              <a href={uri} target="_blank">
+                {name}
+              </a>
+            ) : (
+              name
+            )}
+          </strong>{" "}
+          <small>@{username}</small> {/* <small>31m</small> */}
           <br />
           {description}
         </p>
@@ -52,7 +68,7 @@ const OpenSource = ({
     />
     <section className="section">
       <div className="container">
-        {loading && <Loader />}
+        {loading && <Loader repeat={-1} />}
         {error && <Alert content={error} onClose={removePackagesFailure} />}
         {[]
           .concat(data)

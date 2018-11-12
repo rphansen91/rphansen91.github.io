@@ -13,11 +13,11 @@ const Summary = ({
     <section className="section">
       <div className="container">
         {loading ? (
-          <Loader />
+          <Loader repeat={-1} />
         ) : error ? (
           <Alert content={error} repeat={true} onClose={removeResumeFailure} />
         ) : (
-          <p>{summary}</p>
+          <div dangerouslySetInnerHTML={{ __html: summary }} />
         )}
       </div>
     </section>

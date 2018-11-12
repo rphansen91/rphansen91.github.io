@@ -1,0 +1,14 @@
+.footer-link-title {
+  color: #363636;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.footer-link-title:not(:first-child) {
+  margin-top: 1.5em;
+}
+
+.footer-link-title a,
+.footer-link a {
+  color: currentColor;
+}

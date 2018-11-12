@@ -20,9 +20,9 @@ const MediaItem = ({ picture, name, level, description }) => (
       <div className="content">
         <p>
           <strong>{name}</strong> <small>{level}</small>
-          <br />
-          {description}
         </p>
+        <br />
+        {description}
       </div>
     }
   />

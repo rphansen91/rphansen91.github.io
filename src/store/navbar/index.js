@@ -1,21 +1,15 @@
 import { connect } from "react-redux";
 import { createReducer as cr, createAction as ca } from "redux-delta";
+import { toggleDelta } from "redux-delta/lib/dx/toggle";
 
-const openNavbar = ca("OPEN_NAVBAR");
-
-const closeNavbar = ca("CLOSE_NAVBAR");
-
-const toggleNavbar = ca("TOGGLE_NAVBAR");
-
-export const navbar = cr({ open: false }, [
-  openNavbar.case(_ => ({ open: true })),
-  closeNavbar.case(_ => ({ open: false })),
-  toggleNavbar.case(({ open }) => ({ open: !open }))
-]);
-
+export const navbar = toggleDelta("navbar");
 export const selectNavbar = ({ navbar }) => ({ navbar });
 
 export const withNavbar = connect(
   selectNavbar,
-  { openNavbar, closeNavbar, toggleNavbar }
+  {
+    openNavbar: navbar.setActive.bind(null, true),
+    closeNavbar: navbar.setActive.bind(null, false),
+    toggleNavbar: navbar.toggleActive
+  }
 );

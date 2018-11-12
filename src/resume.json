@@ -2,6 +2,7 @@
   "basics": {
     "name": "Ryan P. Hansen",
     "label": "Web Developer",
+    "username": "rphansen91",
     "picture": "https://avatars3.githubusercontent.com/u/6298790?s=460&v=4",
     "email": "rphansen91@gmail.com",
     "phone": "(951) 550-7992",
@@ -34,9 +35,9 @@
       "company": "Tang Capital Management",
       "picture": "",
       "position": "Software Engineer",
-      "website": "http://company.com",
-      "startDate": "2013-01-01",
-      "endDate": "2014-01-01",
+      "website": "https://www.linkedin.com/company/tang-capital-management/",
+      "startDate": "2017-02-01",
+      "endDate": "2018-11-09",
       "summary": "Description...",
       "highlights": ["Started the company"]
     },
@@ -47,7 +48,7 @@
       "website": "https://spoutable.com",
       "startDate": "2016-10-01",
       "endDate": "2017-02-01",
-      "summary": "Description...",
+      "summary": "Inherited a large JQuery application that combines Mixed Media (content, video, display, quicklinks, email capture and commerce widgets). The main goal is to create many different widgets that can be A B tested against millions of impressions. With this data we learn and optimize the experience for all parties involved in the market of online advertising. In order to scale this sort of system that needs many different permutations of the same unit a structured UI library is necessary to maintain predictability. To acheive this unison while still allowing for customizations and iterations I am building a CLI and GUI equivalent that outputs the JSON representation of any component in our library through a guided form. This generated form has waterfall and branching logic that allows the component author to specify intricate configurations without worrying about someone omitting a crucial piece in the future.",
       "highlights": ["Started the company"]
     },
     {
@@ -57,7 +58,7 @@
       "website": "https://verihold.com",
       "startDate": "2014-09-01",
       "endDate": "Present",
-      "summary": "Description...",
+      "summary": "Verihold was a pivot and rebrand based off of the Antengo Mobile Classifieds technology. Executed the decoupling of Antengo's proprietary escrow payments model from the application UI. I used ReactJs, React DOM Server, GraphQL and Webpack to develop a One Tap to Buy Button. Sellers create items and leverage well known sites such as Facebook, Craigslist, and Ebay, to market their listing. Effectively opening up the Antengo P2P platform to the entire web not just the small subset of Buyer's on the Antengo platform.",
       "highlights": ["Started the company"]
     },
     {
@@ -67,7 +68,7 @@
       "website": "https://antengo.com",
       "startDate": "2014-09-01",
       "endDate": "Present",
-      "summary": "Description...",
+      "summary": "<p class=\"experience-description\">Design and develop a web application that allows users to post and sell items. The system is tied together with an exclusive PayPal partnership, allowing users to transact with trust. Cordova wraps the cross platform and responsive Angular application exposing native controls such as Camera, User Access, and Geolocation.<br><br></p><ul><li><a class=\"main-link\" href=\"https://antengo.com/#/browse\" target=\"_blank\">Web App</a></li><li><a class=\"main-link\" href=\"https://play.google.com/store/apps/details?id=com.antengo.activities&amp;hl=en\" target=\"_blank\">Play Store</a></li><li><a class=\"main-link\" href=\"https://itunes.apple.com/us/app/antengo-classifieds-marketplace/id355980778?mt=8\" target=\"_blank\">App Store</a></li><li><a class=\"main-link\" href=\"https://widget.antengo.com\" target=\"_blank\">Widget</a></li></ul><br>The system architecture also allows for white labeling of the Antengo platform.<br><br><ul><li><a class=\"main-link\" href=\"http://www.sandiegoreader.com/classifieds/\" target=\"_blank\">SD Reader</a></li><li><a class=\"main-link\" href=\"https://widget.antengo.com/?p=sdreader&amp;colors=#77787b,#ee1121,#000000\" target=\"_blank\">Custom Widget</a></li></ul><br>Webpack, a module bundler built top of the NodeJS runtime, is used in order to package multiple custom NPM libraries that allow for reusability of core business logic. These packages are transpiled and compiled at build time in order to create a developer experience that is maintainable and testable.<br><br>All static assets live in Amazon S3 which sits in front of a CloudFront instance. This service caches the application assets across the globe and allows for fast response and load times that perform even with suboptimal network conditions. With this service delivering content to the user the app can progressively load templates and code at the end user's request. This allows for a programmatic system for dealing with browser and device differences as we can send customized assets and behaviors according to the targeted platform.<br><br>The entire user experience is tracked with Google Analytics and a proprietary Real User Metric system based on the browser's performance API. With this user generated data, analysis is performed over time in order to gauge app and new feature performance.<br><p></p>",
       "highlights": ["Started the company"]
     },
     {
@@ -77,39 +78,39 @@
       "website": "https://www.richardsherman25.com/",
       "startDate": "2013-01-01",
       "endDate": "2014-09-01",
-      "summary": "Description...",
+      "summary": "<p class=\"experience-description\">Contracted by multiple companies to solve complex business problems with digital solutions.<br><br>Developed the \"MVP\" platform, a static site generator for official professional athletes marketplaces, leveraging name recognition and fan interaction. The generator is built on top of Shopify and uses Angular to implement the customization dashboard.<br><br>Completed Projects:<br><br></p><ul><li><a href=\"http://www.richardsherman25.com/\" target=\"_blank\" class=\"main-link\">Richard Sherman (SEA Seahawks)</a></li><li><a href=\"http://www.barrysanders.com/\" target=\"_blank\" class=\"main-link\">Barry Sanders (DET Lions)</a></li><li><a href=\"http://www.reggiebush.com/\" target=\"_blank\" class=\"main-link\">Reggie Bush (SF 49ers)</a></li><li><a href=\"http://www.marshallfaulk.com/\" target=\"_blank\" class=\"main-link\">Marshall Faulk (STL Rams)</a></li><li><a href=\"http://www.kstills.com/\" target=\"_blank\" class=\"main-link\">Kenny Stills (MIA Dolphins)</a></li><li><a href=\"http://www.odellbeckhamjr13.com/\" target=\"_blank\" class=\"main-link\">Odell Beckham Jr. (NY Giants)</a></li><li><a href=\"http://www.barrybonds.com/\" target=\"_blank\" class=\"main-link\">Barry Bonds (SF Giants)</a></li><li><a href=\"http://www.parqsd.com/\" target=\"_blank\" class=\"main-link\">Parq Restaurant &amp; Nightclub</a></li><li><a href=\"http://www.mahaska.com/\" target=\"_blank\" class=\"main-link\">Mahaska</a></li></ul>",
       "highlights": ["Started the company"]
     }
   ],
   "projects": [
     {
       "company": "Bedyestory",
-      "picture": "",
+      "picture": "https://bedbyestory.com/logos/bedbyeiconv4.png",
       "position": "Founder",
-      "website": "https://bedystory.com",
+      "website": "https://bedbyestory.com",
       "startDate": "2013-01-01",
       "endDate": "2014-01-01",
-      "summary": "Description...",
+      "summary": "Interact with friends and family around the world.",
       "highlights": ["Started the company"]
     },
     {
       "company": "Hodl Stream",
-      "picture": "",
+      "picture": "https://hodlstream.com/icon.png",
       "position": "Founder",
       "website": "https://hodlstream.com",
       "startDate": "2013-01-01",
       "endDate": "2014-01-01",
-      "summary": "Description...",
+      "summary": "Track your crypto portfolio and visualize changes over time.",
       "highlights": ["Started the company"]
     },
     {
       "company": "Histogeo",
-      "picture": "",
+      "picture": "http://elevatejs.com/assets/histogeo.svg",
       "position": "Founder",
       "website": "https://histogeo.com",
       "startDate": "2013-01-01",
       "endDate": "2014-01-01",
-      "summary": "Description...",
+      "summary": "Find historical events based on current location.",
       "highlights": ["Started the company"]
     }
   ],
@@ -138,6 +139,11 @@
       "name": "Data Visualization",
       "level": "Professional",
       "keywords": ["Mixpanel", "D3"]
+    },
+    {
+      "name": "Cryptocurrency",
+      "level": "Enthusiast",
+      "keywords": ["Bitcoin", "Holochain"]
     }
   ],
   "languages": [

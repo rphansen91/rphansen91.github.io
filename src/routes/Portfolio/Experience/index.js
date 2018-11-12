@@ -1,6 +1,5 @@
 import React from "react";
 import Hero from "../../../components/Hero";
-import Loader from "../../../components/Loader";
 import Media from "../../../components/Media";
 import { activePortfolioColor } from "../active";
 import { compose } from "redux";
@@ -13,7 +12,8 @@ const MediaItem = ({
   position,
   startDate,
   endDate,
-  summary
+  summary,
+  website
 }) => (
   <Media
     notification
@@ -27,13 +27,22 @@ const MediaItem = ({
     content={
       <div className="content">
         <p>
-          <strong>{company}</strong> <small>{position}</small> <br />
+          <strong>
+            {website ? (
+              <a href={website} target="_blank">
+                {company}
+              </a>
+            ) : (
+              company
+            )}
+          </strong>{" "}
+          <small>{position}</small> <br />
           <small>
             {startDate} - {endDate}
           </small>
           <br />
-          {summary}
         </p>
+        <div dangerouslySetInnerHTML={{ __html: summary }} />
       </div>
     }
   />

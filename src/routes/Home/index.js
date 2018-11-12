@@ -9,6 +9,7 @@ import Footer from "../../components/Footer";
 import Beach from "../../components/Draw/Beach";
 import Tiger from "../../components/Draw/Tiger";
 import Gears from "../../components/Draw/Gears";
+import Brain from "../../components/Draw/Brain";
 import Pocketwatch from "../../components/Draw/Pocketwatch";
 import { withResume } from "../../store/resume";
 import { withRouter } from "react-router-dom";
@@ -44,7 +45,7 @@ export default compose(
 
     <section className="section">
       {loading ? (
-        <Loader />
+        <Loader repeat={-1} />
       ) : error ? (
         <Alert content={error} onClose={removeResumeFailure} />
       ) : (
@@ -52,22 +53,23 @@ export default compose(
       )}
 
       <Tile ancestor>
-        <Tile vertical className="is-8">
+        <Tile vertical>
+          <Tile parent>
+            <Tile
+              className={cx([
+                "shadow",
+                "pointer",
+                activePortfolioColor("applications")
+              ])}
+              onClick={() => history.push("/portfolio/applications")}
+              child
+              notification
+            >
+              <p className="title">Applications</p>
+            </Tile>
+          </Tile>
           <Tile>
             <Tile parent vertical>
-              <Tile
-                className={cx([
-                  "shadow",
-                  "pointer",
-                  activePortfolioColor("applications")
-                ])}
-                onClick={() => history.push("/portfolio/applications")}
-                child
-                notification
-              >
-                <p className="title">Applications</p>
-                {/* <Gears className={s.gears} /> */}
-              </Tile>
               <Tile
                 className={cx([
                   "shadow",
@@ -97,6 +99,25 @@ export default compose(
                 <Tiger className={s.tiger} timer={6000} />
               </Tile>
             </Tile>
+            <Tile parent>
+              <Tile
+                className={cx([
+                  "shadow",
+                  "pointer",
+                  "relative",
+                  activePortfolioColor("experience")
+                ])}
+                onClick={() => history.push("/portfolio/experience")}
+                child
+                notification
+              >
+                <div className="content">
+                  <p className="title">Experience</p>
+                  <p className="subtitle" />
+                </div>
+                <Brain className={s.brain} />
+              </Tile>
+            </Tile>
           </Tile>
           <Tile parent>
             <Tile
@@ -111,28 +132,8 @@ export default compose(
             </Tile>
           </Tile>
         </Tile>
-        <Tile parent>
-          <Tile
-            className={cx([
-              "shadow",
-              "pointer",
-              "relative",
-              activePortfolioColor("experience")
-            ])}
-            onClick={() => history.push("/portfolio/experience")}
-            child
-            notification
-          >
-            <div className="content">
-              <p className="title">Experience</p>
-              <p className="subtitle" />
-            </div>
-            {/* <Pocketwatch className={s.pocketwatch} /> */}
-          </Tile>
-        </Tile>
       </Tile>
     </section>
-
     <Footer />
   </div>
 ));

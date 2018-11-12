@@ -47,9 +47,9 @@ export default () => (
         <NavLink to="/blog" key="/blog" className="navbar-item">
           Blog
         </NavLink>,
-        <NavLink to="/about" key="/about" className="navbar-item">
-          About
-        </NavLink>,
+        // <NavLink to="/about" key="/about" className="navbar-item">
+        //   About
+        // </NavLink>,
         <NavLink to="/contact" key="/contact" className="navbar-item">
           Contact
         </NavLink>

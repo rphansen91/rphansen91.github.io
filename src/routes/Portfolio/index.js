@@ -4,7 +4,6 @@ import { compose } from "redux";
 import Tabs, { TabLink } from "../../components/Tabs";
 import { Alert } from "../../components/Media";
 import Hero from "../../components/Hero";
-import Loader from "../../components/Loader";
 import Footer from "../../components/Footer";
 import Badge from "../../components/Badge";
 import Summary from "./Summary";

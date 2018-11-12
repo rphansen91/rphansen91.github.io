@@ -1,44 +1,34 @@
 import { connect } from "react-redux";
 import { call, put, takeEvery } from "redux-saga/effects";
-import { createReducer as cr, createAction as ca } from "redux-delta";
+import { createAction } from "redux-delta";
+import { asyncDelta } from "redux-delta/lib/dx/async";
 import wait from "../../utils/wait";
 import libs from "./libraries";
 
-export const loadPackages = ca("LOAD_PACKAGES");
-export const removePackagesFailure = ca("REMOVE_PACKAGES_FAILURE");
-const loading = ca("PACKAGES_LOADING");
-const success = ca("PACKAGES_RESPOND");
-const failure = ca("PACKAGES_FAILURE");
-
-function* loadPackagesSaga() {
-  try {
-    yield put(loading(true));
-    yield put(failure(""));
-    yield wait(5000);
-    yield put(success(libs));
-    yield put(loading(false));
-  } catch (e) {
-    yield put(failure(e.message));
-    yield put(loading(false));
-  }
-}
-
+export const loadPackages = createAction("LOAD_PACKAGES");
+export const packages = asyncDelta("packages");
 export const selectPackages = ({ packages }) => ({ packages });
 
 export const withPackages = connect(
   selectPackages,
   {
-    removePackagesFailure,
+    removePackagesFailure: packages.setFailure.bind(null, ""),
     loadPackages
   }
 );
 
-export const packages = cr({ loading: false, data: null, error: "" }, [
-  loading.case((_, loading) => ({ loading: !!loading })),
-  success.case((_, data) => ({ data })),
-  failure.case((_, error) => ({ error })),
-  removePackagesFailure.case(_ => ({ error: "" }))
-]);
+function* loadPackagesSaga() {
+  try {
+    yield put(packages.setLoading(true));
+    yield put(packages.setFailure(""));
+    if (process.env.NODE_ENV === "development") yield wait(5000);
+    yield put(packages.setSuccess(libs));
+    yield put(packages.setLoading(false));
+  } catch (e) {
+    yield put(packages.setFailure(e.message));
+    yield put(packages.setLoading(false));
+  }
+}
 
 export default function* packagesSaga() {
   yield takeEvery(loadPackages.type, loadPackagesSaga);

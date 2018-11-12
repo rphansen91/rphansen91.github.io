@@ -18,19 +18,15 @@ export class Navbar extends Component {
   }
 
   handleClick() {
-    const {
-      navbar: { open } = {},
-      toggleNavbar = v => v,
-      closeNavbar = v => v
-    } = this.props;
+    const { navbar: { active } = {}, toggleNavbar = v => v } = this.props;
 
     toggleNavbar();
-    if (!open) document.addEventListener("click", this.closeNavbar);
+    if (!active) document.addEventListener("click", this.closeNavbar);
   }
 
   render() {
     const {
-      navbar: { open } = {},
+      navbar: { active } = {},
       brand = <Brand />,
       burger = <Burger />,
       start,
@@ -48,14 +44,14 @@ export class Navbar extends Component {
           {burger &&
             cloneElement(burger, {
               ...burger.props,
-              open,
+              active,
               onClick: this.handleClick.bind(this)
             })}
         </div>
         <div
           className={cx({
             "navbar-menu": true,
-            "is-active": open
+            "is-active": active
           })}
         >
           {start && <div className="navbar-start">{start}</div>}
