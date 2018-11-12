@@ -2,6 +2,7 @@ import React from "react";
 import { compose } from "redux";
 import Hero from "../../components/Hero";
 import Tile from "../../components/Tile";
+import Loader from "../../components/Loader";
 import Footer from "../../components/Footer";
 import { withRouter } from "react-router-dom";
 import { withContact } from "../../store/contact";
@@ -101,6 +102,7 @@ export default compose(
       </section>
     ) : (
       <section className="section">
+        {contact.loading ? <Loader repeat={-1} /> : <div />}
         <div className="container">
           {get(contact, "error.message") && (
             <p class="help is-danger">{get(contact, "error.message")}</p>
@@ -117,7 +119,9 @@ export default compose(
               error={get(contact, "error.text")}
               placeholder="How can I help you?"
             />
-            <Button className="button is-link">Submit</Button>
+            <Button disabled={contact.loading} className="button is-link">
+              Submit
+            </Button>
           </Form>
         </div>
       </section>
