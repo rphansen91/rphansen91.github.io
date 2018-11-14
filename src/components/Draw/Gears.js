@@ -1,13 +1,12 @@
 import React, { Component } from "react";
-import { TweenMax } from "gsap/TweenMax";
-import { TimelineLite } from "gsap/TimelineLite";
+// import { TweenMax } from "gsap/TweenMax";
+// import { TimelineLite } from "gsap/TimelineLite";
 
 export default class extends Component {
   constructor(props) {
     super(props);
     this.timer = props.timer || 2000;
   }
-  componentDidMount() {}
   getAnimationElements(element) {
     if (element && !this.elements) {
       this.elements = {};
@@ -17,36 +16,40 @@ export default class extends Component {
       this.elements.sm1 = element.querySelector("#cog-sm-1");
       this.elements.sm2 = element.querySelector("#cog-sm-2");
       this.elements.sm3 = element.querySelector("#cog-sm-3");
-      this.animate();
+      require(["gsap/TweenMax", "gsap/TimelineLite"], () => {
+        this.TweenMax = require("gsap/TweenMax").TweenMax;
+        this.TimelineLite = require("gsap/TimelineLite").TimelineLite;
+        this.animate();
+      });
     }
   }
   animate() {
     if (this.timeline) return this.timeline.restart();
 
-    const timeline = new TimelineLite();
+    const timeline = new this.TimelineLite();
     const rotate = rotation => ({
       rotation,
       transformOrigin: "50% 50%"
       // repeat: -1
     });
     timeline.add(
-      TweenMax.to(this.elements.lg, this.timer / 1000, rotate("360")),
+      this.TweenMax.to(this.elements.lg, this.timer / 1000, rotate("360")),
       "cogs"
     );
     timeline.add(
-      TweenMax.to(this.elements.md, this.timer / 1000, rotate("-360")),
+      this.TweenMax.to(this.elements.md, this.timer / 1000, rotate("-360")),
       "cogs"
     );
     timeline.add(
-      TweenMax.to(this.elements.sm1, this.timer / 1000, rotate("-360")),
+      this.TweenMax.to(this.elements.sm1, this.timer / 1000, rotate("-360")),
       "cogs"
     );
     timeline.add(
-      TweenMax.to(this.elements.sm2, this.timer / 1000, rotate("360")),
+      this.TweenMax.to(this.elements.sm2, this.timer / 1000, rotate("360")),
       "cogs"
     );
     timeline.add(
-      TweenMax.to(this.elements.sm3, this.timer / 1000, rotate("-360")),
+      this.TweenMax.to(this.elements.sm3, this.timer / 1000, rotate("-360")),
       "cogs"
     );
     this.timeline = timeline;

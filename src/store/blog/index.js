@@ -7,28 +7,31 @@ import wait from "../../utils/wait";
 import get from "lodash/get";
 
 const postsUrl = `${process.env.REACT_APP_API_URI}/latest?username=rphansen91`;
-export const loadPosts = createAction("LOAD_POSTS");
+
+export const loadPosts = () => d => {
+  d(posts.setLoading(true));
+  d(posts.setFailure(""));
+
+  return fetch(postsUrl)
+    .then(r => r.json())
+    .then(postsjson => {
+      d(posts.setSuccess(postsjson));
+      d(posts.setLoading(false));
+      return postsjson;
+    })
+    .catch(e => {
+      d(posts.setFailure(e.message));
+      d(posts.setLoading(false));
+    });
+};
+
 export const posts = asyncDelta("posts");
+
 export const selectPosts = ({ posts }) => ({ posts });
 
 export const withPosts = connect(
   selectPosts,
-  { loadPosts }
+  d => ({
+    loadPosts: () => d(loadPosts())
+  })
 );
-
-function* loadPostsSaga() {
-  try {
-    yield put(posts.setLoading(true));
-    yield put(posts.setFailure(""));
-    const postsjson = yield call(() => fetch(postsUrl).then(r => r.json()));
-    yield put(posts.setSuccess(postsjson));
-    yield put(posts.setLoading(false));
-  } catch (e) {
-    yield put(posts.setFailure(e.message));
-    yield put(posts.setLoading(false));
-  }
-}
-
-export function* postsSaga() {
-  yield takeEvery(loadPosts.type, loadPostsSaga);
-}

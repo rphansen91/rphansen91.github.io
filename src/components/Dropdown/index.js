@@ -24,13 +24,15 @@ export const Menu = ({ children }) => (
 );
 
 export default class extends Component {
-  state = {
-    active: false
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      active: false
+    };
+  }
 
   toggleActive() {
     const { active } = this.state;
-    console.log({ active });
     this.setState({ active: !active });
   }
 

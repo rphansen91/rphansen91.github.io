@@ -4,6 +4,7 @@ import { call, put, takeEvery } from "redux-saga/effects";
 import { createAction } from "redux-delta";
 import { asyncDelta } from "redux-delta/lib/dx/async";
 import wait from "../../utils/wait";
+import ls from "../../utils/ls";
 import get from "lodash/get";
 
 const CONTACTED = "CONTACTED";
@@ -12,6 +13,7 @@ const subject = "Portfolio Contact";
 const emailErr = "email is required";
 const textErr = "text is required";
 const contactUrl = `${process.env.REACT_APP_API_URI}/contact`;
+const contactedStorage = ls(CONTACTED);
 
 export const sendContact = createAction("SEND_CONTACT");
 export const resetContact = createAction("RESET_CONTACT");
@@ -70,15 +72,15 @@ function* sendContactSaga({ payload: { from, text } }) {
 }
 
 function* persistContacted() {
-  localStorage.setItem(CONTACTED, "true");
+  contactedStorage.set("true");
 }
 
 function* unsetContacted() {
-  localStorage.removeItem(CONTACTED);
+  contactedStorage.rm();
 }
 
 export default function* contactSaga() {
-  const contacted = localStorage.getItem(CONTACTED);
+  const contacted = contactedStorage.get();
 
   if (contacted) yield put(contact.setSuccess({ contacted: true }));
 

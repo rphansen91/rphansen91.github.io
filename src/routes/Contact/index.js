@@ -4,6 +4,7 @@ import Hero from "../../components/Hero";
 import Tile from "../../components/Tile";
 import Loader from "../../components/Loader";
 import Footer from "../../components/Footer";
+import SeoMain from "../../components/Seo/Main";
 import { withRouter } from "react-router-dom";
 import { withContact } from "../../store/contact";
 import Form, { Button } from "react-form-controls";
@@ -71,6 +72,8 @@ export default compose(
   withContact
 )(({ history, contact, sendContact }) => (
   <div>
+    <SeoMain subtitle="Contact" />
+
     <Hero
       info
       bold

@@ -16,8 +16,6 @@ import { withResumeBasics } from "../../store/resume";
 import cx from "../../utils/cx";
 
 class Portfolio extends Component {
-  element;
-
   scrollToElement() {
     const {
       location: { pathname = "" }

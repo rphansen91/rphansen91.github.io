@@ -5,31 +5,30 @@ import { asyncDelta } from "redux-delta/lib/dx/async";
 import wait from "../../utils/wait";
 import libs from "./libraries";
 
-export const loadPackages = createAction("LOAD_PACKAGES");
 export const packages = asyncDelta("packages");
+
 export const selectPackages = ({ packages }) => ({ packages });
+
+export const loadPackages = () => d => {
+  d(packages.setLoading(true));
+  d(packages.setFailure(""));
+
+  return wait(process.env.NODE_ENV === "development" ? 5000 : 0)
+    .then(() => {
+      d(packages.setSuccess(libs));
+      d(packages.setLoading(false));
+      return libs;
+    })
+    .catch(e => {
+      d(packages.setFailure(e.message));
+      d(packages.setLoading(false));
+    });
+};
 
 export const withPackages = connect(
   selectPackages,
-  {
-    removePackagesFailure: packages.setFailure.bind(null, ""),
-    loadPackages
-  }
+  d => ({
+    removePackagesFailure: () => d(packages.setFailure("")),
+    loadPackages: () => d(loadPackages())
+  })
 );
-
-function* loadPackagesSaga() {
-  try {
-    yield put(packages.setLoading(true));
-    yield put(packages.setFailure(""));
-    if (process.env.NODE_ENV === "development") yield wait(5000);
-    yield put(packages.setSuccess(libs));
-    yield put(packages.setLoading(false));
-  } catch (e) {
-    yield put(packages.setFailure(e.message));
-    yield put(packages.setLoading(false));
-  }
-}
-
-export default function* packagesSaga() {
-  yield takeEvery(loadPackages.type, loadPackagesSaga);
-}

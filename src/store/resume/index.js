@@ -6,32 +6,34 @@ import resumejson from "../../resume.json";
 import wait from "../../utils/wait";
 import get from "lodash/get";
 
-export const loadResume = createAction("LOAD_RESUME");
+export const loadResume = () => d => {
+  d(resume.setLoading(true));
+  d(resume.setFailure(""));
+
+  return wait(process.env.NODE_ENV === "development" ? 2000 : 0)
+    .then(() => {
+      d(resume.setSuccess(resumejson));
+      d(resume.setLoading(false));
+      return resumejson;
+    })
+    .catch(e => {
+      d(resume.setFailure(e.message));
+      d(resume.setLoading(false));
+    });
+};
+
 export const resume = asyncDelta("resume");
+
 export const selectResume = ({ resume }) => ({ resume });
 
 export const withResume = connect(
   selectResume,
-  { loadResume, removeResumeFailure: resume.setFailure.bind(null, "") }
+  d => ({
+    loadResume: () => d(loadResume()),
+    removeResumeFailure: () => d(resume.setFailure)
+  })
 );
 
 export const withResumeBasics = connect(({ resume }) => ({
   basics: get(resume, "data.basics") || {}
 }));
-
-function* loadResumeSaga() {
-  try {
-    yield put(resume.setLoading(true));
-    yield put(resume.setFailure(""));
-    if (process.env.NODE_ENV === "development") yield wait(2000);
-    yield put(resume.setSuccess(resumejson));
-    yield put(resume.setLoading(false));
-  } catch (e) {
-    yield put(resume.setFailure(e.message));
-    yield put(resume.setLoading(false));
-  }
-}
-
-export default function* resumeSaga() {
-  yield takeEvery(loadResume.type, loadResumeSaga);
-}

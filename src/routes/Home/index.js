@@ -11,18 +11,36 @@ import Tiger from "../../components/Draw/Tiger";
 import Gears from "../../components/Draw/Gears";
 import Brain from "../../components/Draw/Brain";
 import Pocketwatch from "../../components/Draw/Pocketwatch";
+import Seo from "../../components/Seo";
 import { withResume } from "../../store/resume";
 import { withRouter } from "react-router-dom";
 import { activePortfolioColor } from "../Portfolio/active";
 import get from "lodash/get";
 import cx from "../../utils/cx";
-import s from "./index.css";
+import { css } from "react-emotion";
+import SeoMain from "../../components/Seo/Main";
+
+const beach = css({
+  position: "absolute",
+  top: 0,
+  right: 0,
+  height: "100%"
+});
+
+const svg = css({
+  fill: "none",
+  stroke: "currentColor",
+  transformOrigin: "center",
+  strokeWidth: "2px"
+});
 
 export default compose(
   withRouter,
   withResume
 )(({ resume: { loading, error }, removeResumeFailure, history }) => (
   <div>
+    <SeoMain />
+
     <Hero
       className="relative"
       dark
@@ -30,7 +48,7 @@ export default compose(
       medium
       body={
         <div>
-          <Beach className={s.beach} timer={2000} />
+          <Beach className={cx([svg, beach])} timer={2000} />
           <div className="container">
             <div className="columns is-desktop">
               <div className="column">
@@ -81,7 +99,7 @@ export default compose(
                 notification
               >
                 <p className="title">Open Source</p>
-                <Gears className={s.gears} />
+                <Gears className={svg} />
               </Tile>
             </Tile>
             <Tile parent>
@@ -96,7 +114,7 @@ export default compose(
                 notification
               >
                 <p className="title">Skills</p>
-                <Tiger className={s.tiger} timer={6000} />
+                <Tiger className={svg} timer={6000} />
               </Tile>
             </Tile>
             <Tile parent>
@@ -115,7 +133,7 @@ export default compose(
                   <p className="title">Experience</p>
                   <p className="subtitle" />
                 </div>
-                <Brain className={s.brain} />
+                <Brain className={svg} />
               </Tile>
             </Tile>
           </Tile>

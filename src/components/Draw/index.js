@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import { TweenLite, Power2 } from "gsap/TweenLite";
-import { TimelineLite } from "gsap/TimelineLite";
+// import { TweenLite, Power2 } from "gsap/TweenLite";
+// import { TimelineLite } from "gsap/TimelineLite";
 
-function animatePath(begin, end, timer) {
-  const element = this;
+function animatePath(element, begin, end, timer) {
   const from = { x: begin };
-  return new TweenLite(from, timer, {
+  return new this.TweenLite(from, timer, {
     x: end,
     onUpdate: () => (element.style["stroke-dashoffset"] = from.x)
   });
@@ -25,7 +24,7 @@ export default class Draw extends Component {
         element.length = length;
         element.style["stroke-dashoffset"] = length;
         element.style["stroke-dasharray"] = length;
-        element.animate = animatePath.bind(element);
+        element.animate = animatePath.bind(this, element);
       });
       this.totalLength = this.paths.reduce((acc, c) => acc + c.length, 0);
       this.groups = this.paths.reduce((acc, c) => {
@@ -37,7 +36,7 @@ export default class Draw extends Component {
   }
 
   animationTimeline(fn = v => v) {
-    const timeline = new TimelineLite();
+    const timeline = new this.TimelineLite();
 
     this.paths.forEach(element => {
       timeline.add(element.animate(element.length, element.length, 0));
@@ -54,15 +53,23 @@ export default class Draw extends Component {
           );
         });
         return tl;
-      }, new TimelineLite());
+      }, new this.TimelineLite());
 
     timeline.add(groups);
     return timeline;
   }
 
   animate() {
-    if (!this.timeline) this.timeline = this.animationTimeline();
-    else this.timeline.restart();
+    if (this.timeline) {
+      this.timeline.restart();
+      return;
+    }
+
+    require.ensure(["gsap/TweenLite", "gsap/TimelineLite"], () => {
+      this.TweenLite = require("gsap/TweenLite").TweenLite;
+      this.TimelineLite = require("gsap/TimelineLite").TimelineLite;
+      this.timeline = this.animationTimeline();
+    });
   }
 
   render() {

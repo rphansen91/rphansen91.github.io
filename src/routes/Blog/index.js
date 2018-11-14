@@ -3,6 +3,7 @@ import { compose } from "redux";
 import Hero from "../../components/Hero";
 import Tile from "../../components/Tile";
 import Footer from "../../components/Footer";
+import SeoMain from "../../components/Seo/Main";
 import Card from "../../components/Card";
 import { withRouter } from "react-router-dom";
 import { withResumeBasics } from "../../store/resume";
@@ -25,6 +26,8 @@ export default compose(
   const items = get(posts, "data.payload.references.Post") || {};
   return (
     <div>
+      <SeoMain subtitle="Blog" />
+
       <Hero
         bold
         danger

@@ -1,6 +1,6 @@
 import React from "react";
 import cx from "../../utils/cx";
-import s from "./index.css";
+import { css } from "react-emotion";
 
 export const CardImage = ({ image }) => (
   <div className="card-image">
@@ -28,7 +28,17 @@ export default ({ title, subtitle, image, footer }) => (
   <div className="card">
     {image && <CardImage image={image} />}
     <div className="card-content">
-      <p className={cx({ title: true, [s["rows-2"]]: true })}>{title}</p>
+      <p
+        className={cx([
+          "title",
+          css({
+            height: "2.4em",
+            overflow: "hidden"
+          })
+        ])}
+      >
+        {title}
+      </p>
       {subtitle && <p className="subtitle">{subtitle}</p>}
     </div>
     {footer}
